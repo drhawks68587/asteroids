@@ -40,6 +40,12 @@ def main():
             if player.collision(asteroid):
                 print("Game over!")
                 sys.exit()
+        for asteroid in asteroids:
+            for shot in shots:
+                 if pygame.sprite.collide_circle(shot, asteroid):
+                    asteroid.split()
+                    shot.kill()
+
         for sprite in drawable:
             sprite.draw(screen)
 
